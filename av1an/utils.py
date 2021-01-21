@@ -45,7 +45,7 @@ def list_index_of_regex(lst: List[str], regex_str: str) -> int:
     raise ValueError(f"{reg} is not in list")
 
 
-def frame_probe_fast(source: Path, is_vs: bool = False):
+def frame_probe_fast(source: Path, is_vs: bool = True):
     """
     Consolidated function to retrieve the number of frames from the input quickly,
     falls back on a slower (but accurate) frame count if a quick count cannot be found.
