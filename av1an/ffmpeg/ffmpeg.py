@@ -84,6 +84,7 @@ def get_keyframes(file: Path) -> List[int]:
     """
 
     keyframes = []
+    total_frames = 0
 
     ff = [
         "ffmpeg",
@@ -112,7 +113,11 @@ def get_keyframes(file: Path) -> List[int]:
             keyframe = int(match.group(1))
             keyframes.append(keyframe)
 
-    return keyframes
+        match_total = re.search('.*Input stream.+\(video\).+ ([0-9]+) frames decoded', line)
+        if match_total:
+            total_frames = int(match_total.group(1))
+
+    return keyframes, total_frames
 
 
 def extract_audio(input_vid: Path, temp, audio_params):

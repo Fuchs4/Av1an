@@ -98,8 +98,8 @@ def create_video_queue_hybrid(
     :param split_locations: a list of frames to split on
     :return: A list of chunks
     """
-    keyframes = get_keyframes(project.input)
-
+    keyframes, end = get_keyframes(project.input)
+    project.set_frames(end)
     end = [project.get_frames()]
 
     splits = [0] + split_locations + end
