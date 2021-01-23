@@ -33,8 +33,9 @@ class Counter:
                 dynamic_ncols=True,
                 unit="fr",
                 leave=True,
-                smoothing=0.01,
+                smoothing=0.0,
             )
+            self.update(0)
 
     def update(self, value):
         if self.use_tqdm:
