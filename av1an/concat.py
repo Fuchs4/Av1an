@@ -28,7 +28,7 @@ def vvc_concat(temp: Path, output: Path):
     subprocess.run(cmd, shell=True, check=True)
 
 
-def concatenate_ffmpeg(temp: Path, output: Path, encoder: str):
+def concatenate_ffmpeg(temp: Path, output: Path, encoder: str, concat_params: list):
     """
     Uses ffmpeg to concatenate encoded segments into the final file
 
@@ -78,6 +78,7 @@ def concatenate_ffmpeg(temp: Path, output: Path, encoder: str):
             "frag_keyframe+empty_moov",
             "-map",
             "0",
+            *concat_params,
             "-f",
             "mp4",
             output.as_posix(),
@@ -102,6 +103,7 @@ def concatenate_ffmpeg(temp: Path, output: Path, encoder: str):
             "copy",
             "-map",
             "0",
+            *concat_params,
             output.as_posix(),
         ]
 

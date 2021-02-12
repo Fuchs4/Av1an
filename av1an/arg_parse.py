@@ -231,6 +231,13 @@ class Args:
             default="yuv420p10le",
             help="FFmpeg pixel format",
         )
+        ffmpeg_group.add_argument(
+            '--concat_params',
+            type=str,
+            default='',
+            help='FFmpeg concatenation settings. '
+               'This can be used to add metadata'
+        )
 
         # Vmaf
         vmaf_group = parser.add_argument_group("VMAF")

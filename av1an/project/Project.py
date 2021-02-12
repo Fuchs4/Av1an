@@ -52,6 +52,7 @@ class Project(object):
         self.ffmpeg: str = None
         self.audio_params = None
         self.pix_format: Command = None
+        self.concat_params = None
 
         # Misc
         self.quiet = False
@@ -235,7 +236,7 @@ class Project(object):
             elif self.mkvmerge:
                 concatenate_mkvmerge(self.temp, self.output_file)
             else:
-                concatenate_ffmpeg(self.temp, self.output_file, self.encoder)
+                concatenate_ffmpeg(self.temp, self.output_file, self.encoder, self.concat_params)
         except Exception as e:
             _, _, exc_tb = sys.exc_info()
             print(
