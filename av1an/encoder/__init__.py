@@ -6,6 +6,7 @@ from .vpx import Vpx
 from .vvc import Vvc
 from .x264 import X264
 from .x265 import X265
+from .ffmpeg import Ffmpeg
 
 ENCODERS = {
     'aom': Aom(),
@@ -16,4 +17,5 @@ ENCODERS = {
     'vvc': Vvc(),
     'x264': X264(),
     'x265': X265(),
+    'ffmpeg': Ffmpeg(),
 }

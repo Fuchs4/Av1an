@@ -192,6 +192,7 @@ class Args:
                 "x265",
                 "x264",
                 "vvc",
+                "ffmpeg",
             ],
         )
         encode_group.add_argument(
