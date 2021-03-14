@@ -161,6 +161,8 @@ def extract_audio(input_vid: Path, temp, audio_params):
             "-map",
             "0",
             "-vn",
+            '-c',
+            'copy',
             *audio_params,
             audio_file.as_posix(),
         )
