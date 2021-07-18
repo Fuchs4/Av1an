@@ -446,7 +446,6 @@ class TargetQuality:
                 "--low-latency",
                 "--rdo-lookahead-frames",
                 "5",
-                "--no-scene-detection",
             ]
             cmd = CommandPair(pipe, [*params, "-o", probe_name, "-"])
 
