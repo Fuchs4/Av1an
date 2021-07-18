@@ -307,7 +307,7 @@ class TargetQuality:
         :return : path to json file with vmaf scores
         """
 
-        n_threads = self.n_threads if self.n_threads else self.auto_vmaf_threads()
+        n_threads = self.n_threads if self.n_threads is not None else self.auto_vmaf_threads()
         cmd = self.probe_cmd(
             chunk, q, self.ffmpeg_pipe, self.encoder, self.probing_rate, n_threads
         )
